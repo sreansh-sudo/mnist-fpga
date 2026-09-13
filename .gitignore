@@ -13,3 +13,6 @@ data/raw/
 
 *.tmp
 *.bak
+
+# PyTorch trained model
+python/mnist_model.pth
