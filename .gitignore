@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+
+.vscode/
+
+*.log
+*.vcd
+*.fst
+
+results/
+data/raw/
+
+*.tmp
+*.bak
