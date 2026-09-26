@@ -1,4 +1,6 @@
+cat > .gitignore <<'EOF'
 .venv/
+.venv-wsl/
 
 __pycache__/
 *.pyc
@@ -19,3 +21,7 @@ python/mnist_model.pth
 
 # MNIST dataset
 data/
+
+# Verilator generated files
+obj_dir/
+EOF
