@@ -100,35 +100,21 @@ module fc2 (
         .bias9(bias9)
     );
 
+
+        // ------------------------------------------------------------
+    // FC2 MAC signals
     // ------------------------------------------------------------
-    // Convert individual signals to arrays for fc2_mac10
-    // ------------------------------------------------------------
 
-    wire signed [7:0] mac_weights [0:9];
-    wire signed [20:0] mac_biases [0:9];
-    wire signed [20:0] mac_accumulators [0:9];
-
-    assign mac_weights[0] = weight0;
-    assign mac_weights[1] = weight1;
-    assign mac_weights[2] = weight2;
-    assign mac_weights[3] = weight3;
-    assign mac_weights[4] = weight4;
-    assign mac_weights[5] = weight5;
-    assign mac_weights[6] = weight6;
-    assign mac_weights[7] = weight7;
-    assign mac_weights[8] = weight8;
-    assign mac_weights[9] = weight9;
-
-    assign mac_biases[0] = bias0;
-    assign mac_biases[1] = bias1;
-    assign mac_biases[2] = bias2;
-    assign mac_biases[3] = bias3;
-    assign mac_biases[4] = bias4;
-    assign mac_biases[5] = bias5;
-    assign mac_biases[6] = bias6;
-    assign mac_biases[7] = bias7;
-    assign mac_biases[8] = bias8;
-    assign mac_biases[9] = bias9;
+    wire signed [20:0] mac_accumulator0;
+    wire signed [20:0] mac_accumulator1;
+    wire signed [20:0] mac_accumulator2;
+    wire signed [20:0] mac_accumulator3;
+    wire signed [20:0] mac_accumulator4;
+    wire signed [20:0] mac_accumulator5;
+    wire signed [20:0] mac_accumulator6;
+    wire signed [20:0] mac_accumulator7;
+    wire signed [20:0] mac_accumulator8;
+    wire signed [20:0] mac_accumulator9;
 
     // ------------------------------------------------------------
     // 10 parallel MAC lanes
@@ -140,25 +126,54 @@ module fc2 (
         .load_bias(load_bias),
         .mac_enable(mac_enable),
         .activation(activation_data),
-        .weight(mac_weights),
-        .bias(mac_biases),
-        .accumulator(mac_accumulators)
-    );
 
-    // ------------------------------------------------------------
+        .weight0(weight0),
+        .weight1(weight1),
+        .weight2(weight2),
+        .weight3(weight3),
+        .weight4(weight4),
+        .weight5(weight5),
+        .weight6(weight6),
+        .weight7(weight7),
+        .weight8(weight8),
+        .weight9(weight9),
+
+        .bias0(bias0),
+        .bias1(bias1),
+        .bias2(bias2),
+        .bias3(bias3),
+        .bias4(bias4),
+        .bias5(bias5),
+        .bias6(bias6),
+        .bias7(bias7),
+        .bias8(bias8),
+        .bias9(bias9),
+
+        .accumulator0(mac_accumulator0),
+        .accumulator1(mac_accumulator1),
+        .accumulator2(mac_accumulator2),
+        .accumulator3(mac_accumulator3),
+        .accumulator4(mac_accumulator4),
+        .accumulator5(mac_accumulator5),
+        .accumulator6(mac_accumulator6),
+        .accumulator7(mac_accumulator7),
+        .accumulator8(mac_accumulator8),
+        .accumulator9(mac_accumulator9)
+    );
+        // ------------------------------------------------------------
     // Final logits
     // ------------------------------------------------------------
 
-    assign logit0 = mac_accumulators[0];
-    assign logit1 = mac_accumulators[1];
-    assign logit2 = mac_accumulators[2];
-    assign logit3 = mac_accumulators[3];
-    assign logit4 = mac_accumulators[4];
-    assign logit5 = mac_accumulators[5];
-    assign logit6 = mac_accumulators[6];
-    assign logit7 = mac_accumulators[7];
-    assign logit8 = mac_accumulators[8];
-    assign logit9 = mac_accumulators[9];
+    assign logit0 = mac_accumulator0;
+    assign logit1 = mac_accumulator1;
+    assign logit2 = mac_accumulator2;
+    assign logit3 = mac_accumulator3;
+    assign logit4 = mac_accumulator4;
+    assign logit5 = mac_accumulator5;
+    assign logit6 = mac_accumulator6;
+    assign logit7 = mac_accumulator7;
+    assign logit8 = mac_accumulator8;
+    assign logit9 = mac_accumulator9;
 
     // ------------------------------------------------------------
     // Argmax
