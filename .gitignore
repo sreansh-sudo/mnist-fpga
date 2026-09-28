@@ -23,3 +23,6 @@ data/raw/
 
 # Verilator generated files
 obj_dir/
+
+# Gowin generated implementation files
+gowin/**/impl/
