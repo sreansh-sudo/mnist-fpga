@@ -1,0 +1,32 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW2AR-18C" pn="GW2AR-LV18QN88C8/I7">gw2ar18c-000</Device>
+    <FileList>
+        <File path="src/argmax10.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_activation_mem.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_bias_mem.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_bram.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_bram_synth_top.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_bram_top.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_controller.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_controller_bram.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_input_mem.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_mac8.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_mac_lane.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_requant_relu.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_weight_mem.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_weight_mem_bram.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_weight_mem_bram_top.v" type="file.verilog" enable="1"/>
+        <File path="src/fc2.v" type="file.verilog" enable="1"/>
+        <File path="src/fc2_bias_mem.v" type="file.verilog" enable="1"/>
+        <File path="src/fc2_controller.v" type="file.verilog" enable="1"/>
+        <File path="src/fc2_mac10.v" type="file.verilog" enable="1"/>
+        <File path="src/fc2_mac_lane.v" type="file.verilog" enable="1"/>
+        <File path="src/fc2_weight_mem.v" type="file.verilog" enable="1"/>
+        <File path="src/mnist_top.v" type="file.verilog" enable="1"/>
+    </FileList>
+</Project>

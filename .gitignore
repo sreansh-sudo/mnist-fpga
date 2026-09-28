@@ -26,3 +26,6 @@ obj_dir/
 
 # Gowin generated implementation files
 gowin/**/impl/
+
+# Gowin IDE user state
+*.gprj.user
