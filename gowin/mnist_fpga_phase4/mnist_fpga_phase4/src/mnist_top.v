@@ -90,7 +90,7 @@ module mnist_top (
     // FC1
     // ========================================================
 
-    fc1 fc1_inst (
+    fc1_bram4_pipe fc1_inst (
         .clk(clk),
         .rst(rst),
         .start(fc1_start),

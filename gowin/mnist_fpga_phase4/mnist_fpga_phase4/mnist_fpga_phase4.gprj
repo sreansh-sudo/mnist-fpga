@@ -10,7 +10,6 @@
         <File path="src/fc1_activation_mem.v" type="file.verilog" enable="1"/>
         <File path="src/fc1_bias_mem.v" type="file.verilog" enable="1"/>
         <File path="src/fc1_bram.v" type="file.verilog" enable="1"/>
-        <File path="src/fc1_bram_synth_top.v" type="file.verilog" enable="1"/>
         <File path="src/fc1_bram_top.v" type="file.verilog" enable="1"/>
         <File path="src/fc1_controller.v" type="file.verilog" enable="1"/>
         <File path="src/fc1_controller_bram.v" type="file.verilog" enable="1"/>
@@ -27,6 +26,14 @@
         <File path="src/fc2_mac10.v" type="file.verilog" enable="1"/>
         <File path="src/fc2_mac_lane.v" type="file.verilog" enable="1"/>
         <File path="src/fc2_weight_mem.v" type="file.verilog" enable="1"/>
-        <File path="src/mnist_top.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_mac4_pipe.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_controller_bram4_pipe.v" type="file.verilog" enable="1"/>
+        <File path="src/fc1_bram4_pipe.v" type="file.verilog" enable="1"/>
+
+<File path="src/mnist_top.v" type="file.verilog" enable="1"/>
+        <File path="src/mnist_tang_nano20k.v" type="file.verilog" enable="1"/>
+        <File path="src/mnist_tang_nano20k.cst" type="file.cst" enable="1"/>
+        <File path="src/mnist_tang_nano20k.sdc" type="file.sdc" enable="1"/>
     </FileList>
 </Project>
