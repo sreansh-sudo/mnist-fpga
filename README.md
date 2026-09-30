@@ -31,7 +31,13 @@ Predicted digit
 
 The project uses an integer-only inference datapath suitable for FPGA implementation.
 
-### Final architecture
+## Architecture
+
+![MNIST-FPGA Architecture](docs/architecture.png)
+
+---
+
+## Final Architecture
 
 - **Input:** 28 × 28 MNIST image = 784 pixels
 - **FC1:** 784 → 32
@@ -53,7 +59,7 @@ The project uses an integer-only inference datapath suitable for FPGA implementa
 
 ## Results
 
-### Software / numerical validation
+### Software / Numerical Validation
 
 | Metric | Result |
 |---|---:|
@@ -63,7 +69,7 @@ The project uses an integer-only inference datapath suitable for FPGA implementa
 
 The quantized network preserves the classification behavior of the original model closely enough for FPGA deployment.
 
-### Physical FPGA validation
+### Physical FPGA Validation
 
 A final known-good bitstream was programmed onto the Tang Nano 20K.
 
@@ -76,13 +82,22 @@ A final known-good bitstream was programmed onto the Tang Nano 20K.
 - Observed output: **LED1 ON**
 - Result: **PASS**
 
-Final verified bitstream SHA256:
+### Verified Hardware Configuration
+
+The physically verified demonstration uses:
+
+- MNIST test index: `1`
+- Ground-truth digit: `2`
+- Predicted digit: `2`
+- LED output: `LED1 ON`
+- Internal clock: approximately `100 MHz`
+- Verified bitstream SHA256:
 
 ```text
 b3a5cf51840e20784da52ee57b791c2857b4c7177dafb0e938449381dccd75ce
 ```
 
-The verified bitstream is preserved as:
+The verified bitstream is preserved locally as:
 
 ```text
 backups/final/mnist_fpga_phase6_known_good_test2.fs
@@ -199,7 +214,7 @@ This phase included:
 
 ### Phase 5 — Resource Optimization
 
-Optimized the FC1 hardware implementation to reduce FPGA resource usage while maintaining the required numerical behavior.
+Optimized the FC1 datapath using BRAM-based weight storage and parallel MAC processing to reduce FPGA resource usage while maintaining the required numerical behavior.
 
 ### Phase 6 — Hardware Validation
 
@@ -241,24 +256,42 @@ mnist-fpga/
 │
 ├── data/
 │   ├── raw/
+│   ├── fc1_bank*.mem
+│   ├── fc2_bank*.mem
 │   ├── fc1_expected_activation.mem
 │   └── test_input.mem
 │
 ├── docs/
 │   ├── PHASE_2_NUMERICAL_SPEC.md
-│   └── PHASE_6_HARDWARE_VALIDATION.md
+│   ├── PHASE_3_RTL_IMPLEMENTATION.md
+│   ├── PHASE_4A_FC1_WEIGHT_BRAM_OPTIMIZATION.md
+│   ├── PHASE_4B_OPTIMIZATION.md
+│   ├── PHASE_5_RESOURCE_OPTIMIZATION.md
+│   ├── PHASE_6_HARDWARE_VALIDATION.md
+│   └── architecture.png
 │
 ├── gowin/
 │   └── mnist_fpga_phase4/
 │       └── mnist_fpga_phase4/
+│           ├── data/
+│           ├── src/
+│           └── mnist_fpga_phase4.gprj
 │
 ├── python/
-│   └── phase3/
-│       └── generate_fc1_test_vector.py
+│   ├── phase2/
+│   ├── phase3/
+│   ├── phase4/
+│   └── train.py
 │
 ├── rtl/
-│   ├── fc1/
-│   ├── fc2/
+│   ├── fc1.v
+│   ├── fc1_bram.v
+│   ├── fc1_controller.v
+│   ├── fc1_mac8.v
+│   ├── fc2.v
+│   ├── fc2_controller.v
+│   ├── fc2_mac10.v
+│   ├── argmax10.v
 │   └── ...
 │
 ├── tb/
@@ -270,7 +303,7 @@ mnist-fpga/
 └── README.md
 ```
 
-Generated Gowin implementation output is excluded from Git tracking where appropriate.
+Generated Gowin implementation output is excluded from Git tracking where appropriate. Experimental Phase 5/6 artifacts are preserved locally under `backups/` and are intentionally excluded from Git tracking.
 
 ---
 
@@ -386,7 +419,7 @@ for the complete Phase 6 record.
 
 ## Final Status
 
-**Project implementation and hardware-validation workflow complete.**
+**Project implementation and hardware-validation workflow complete for the verified demonstration configuration.**
 
 The project demonstrates the complete path:
 
