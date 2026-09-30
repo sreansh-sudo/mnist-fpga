@@ -2,13 +2,14 @@ import struct
 from pathlib import Path
 
 import torch
+import sys
 
 
 # ---------------------------------------------------------
 # Paths
 # ---------------------------------------------------------
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 IMAGE_FILE = PROJECT_ROOT / "data" / "raw" / "t10k-images-idx3-ubyte"
 LABEL_FILE = PROJECT_ROOT / "data" / "raw" / "t10k-labels-idx1-ubyte"
@@ -98,7 +99,7 @@ def read_mnist_label(filename, index):
 def main():
 
     # Use the first test image
-    TEST_INDEX = 0
+    TEST_INDEX = int(sys.argv[1]) if len(sys.argv) > 1 else 3
 
     print("Loading MNIST image...")
 

@@ -48,6 +48,7 @@ module mnist_tang_nano20k (
 
     reg [1:0] state = S_LOAD;
     reg [9:0] load_addr = 10'd0;
+    reg [9:0] write_addr = 10'd0;
 
     // ============================================================
     // Startup reset
@@ -68,7 +69,7 @@ module mnist_tang_nano20k (
 
                 S_LOAD: begin
                     input_write_enable <= 1'b1;
-                    input_write_addr   <= load_addr;
+                    input_write_addr   <= write_addr;
                     input_write_data   <= image_mem[load_addr];
                     start              <= 1'b0;
 
@@ -77,6 +78,7 @@ module mnist_tang_nano20k (
                     end
                     else begin
                         load_addr <= load_addr + 10'd1;
+                        write_addr <= write_addr + 10'd1;
                     end
                 end
 
