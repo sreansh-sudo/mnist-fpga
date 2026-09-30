@@ -49,6 +49,8 @@ The project uses an integer-only inference datapath suitable for FPGA implementa
 
 ---
 
+![MNIST-FPGA Architecture](docs/mnist-fpga-architecture.png)
+
 ## Results
 
 ### Software / numerical validation
